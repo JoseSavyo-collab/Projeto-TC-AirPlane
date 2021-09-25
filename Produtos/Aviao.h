@@ -3,9 +3,9 @@
 
 class Aviao:public Produto{
     private:
-        int TaxaEconomica_Aviao;
-        int TaxaExecutiva_Aviao;
-        int TaxaPrimeiraClasse_Aviao;
+        int TaxaEconomica_Aviao=2;
+        int TaxaExecutiva_Aviao=3;
+        int TaxaPrimeiraClasse_Aviao=4;
 
         int Distancia_Aviao;
 
@@ -25,13 +25,15 @@ class Aviao:public Produto{
 					    2947, 1776, 1109, 3070, 2660, 3604, 429, 1926, 2970, 0, 2792, 882};
 
     public:
-        Aviao(string, string, int, int, int);
+        Aviao(string, string, int, int, int, int);
 
         void Define_Distancia_Aviao(int, int);
         int Retorna_Distancia_Aviao();
 
         void Calcula_TempoDeViagemAviao();
         void Calcula_PrecoDaPassagemAviao(int);
+
+        void ImprimirPassagemAviao();
 
 
 };

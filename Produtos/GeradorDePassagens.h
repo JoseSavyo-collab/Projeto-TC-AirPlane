@@ -17,7 +17,7 @@ class GeradorDePassagens{
         void AdicionarPassagem(int);
         void VenderPassaegem(int);
 
-        void CancelarPassagem(int);
+        void CancelarPassagem(string);//funcionário
         void AgendandoPassagemOnibus(Onibus);
         void AgendandoPassagemAviao(Aviao);
         void AgendandoPassagemCruzeiro(Cruzeiro);

@@ -1,8 +1,10 @@
 #include "Aviao.h"
 
-Aviao::Aviao(string Data_de_ida, string Data_de_volta, int TipoDeViagem, int origem, int destino)
+Aviao::Aviao(string Data_de_ida, string Data_de_volta, int TipoDeViagem, int origem, int destino, int escolha)
     :Produto(Data_de_ida, Data_de_volta, TipoDeViagem, origem, destino){
-
+    Define_Distancia_Aviao(origem, destino);
+    Calcula_TempoDeViagemAviao();
+    Calcula_PrecoDaPassagemAviao(escolha);
 }
 
 void Aviao::Define_Distancia_Aviao(int a, int b){
@@ -30,9 +32,10 @@ int Aviao::Retorna_Distancia_Aviao(){
 }
 
 void Aviao::Calcula_TempoDeViagemAviao(){
-    int horas, minutos;
-    horas=(Retorna_Distancia_Aviao()/800);
-    minutos=(horas-(Retorna_Distancia_Aviao()/800))*100;
+    int minutos, horas;
+
+    horas = (Retorna_Distancia_Aviao()/800);
+    minutos = ((horas-(Retorna_Distancia_Aviao()/800.0))*100)/60;
 
     Define_TempoDeViagem(to_string(horas)+" hr(s) e "+to_string(minutos)+" min(s)");
 }
@@ -52,5 +55,13 @@ void Aviao::Calcula_PrecoDaPassagemAviao(int escolha){
     }
     Define_PrecoDaPassagem(calc_do_preco);
 }
+
+void Aviao::ImprimirPassagemAviao(){
+    ImprimirDadosDaViagem();
+    cout<<"\nDistância à ser percorrida: "<<Retorna_Distancia_Aviao()
+        <<"\nDuração média da viagem: "<<Retorna_TempoDeViagem()
+        <<"\nPreco da passagem: R$ "<<Retorna_PrecoDaPassagem();
+}
+
 
 

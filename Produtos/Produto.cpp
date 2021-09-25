@@ -80,8 +80,13 @@ void Produto::Escolha_Destino(int c){
         "Porto Velho", "Recife", "Rio Branco", "Rio de Janeiro", "Salvador", "São Luis",
         "São Paulo", "Teresina", "Vitória"};
 
-        Destino=Destinos[c];
+    string Portos[2]={"Santos", "Rio Grande"};
 
+    if(Tipo_de_viagem!="Cruzeiro"){
+        Destino=Destinos[c];
+    }else{
+        Destino=Portos[c];
+    }
 }
 
 string Produto::Retorna_Destino(){
@@ -108,10 +113,19 @@ float Produto::Retorna_PrecoDaPassagem(){
 void Produto::Define_TagPassagem(){
     srand(time(0));
 
+    if(Retorna_Tipo_de_viagem()=="Avião"){
+        TagPassagem="A";
+    }
+    else if(Retorna_Tipo_de_viagem()=="Ônibus"){
+        TagPassagem="O";
+    }else{
+        TagPassagem="C";
+    }
+
     char vetor[8];
     char i;
 
-    for(i=0; i<4; i++){
+    for(i=0; i<3; i++){
         vetor[i]= 'a' + (char)(rand()%26);
         TagPassagem=TagPassagem+vetor[i];
     }

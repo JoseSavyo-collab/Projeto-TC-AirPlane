@@ -33,9 +33,10 @@ int Onibus::Retorna_Distancia_onibus(){
 }
 
 void Onibus::Calcula_TempoDeViagemOnibus(){
-    int horas, minutos;
-    horas=(Retorna_Distancia_onibus()/80);
-    minutos=(horas-(Retorna_Distancia_onibus()/80))*100;
+    int minutos, horas;
+
+    horas = (Retorna_Distancia_onibus()/80);
+    minutos = ((Retorna_Distancia_onibus()/80.0)-horas)/60;
 
     Define_TempoDeViagem(to_string(horas)+" hr(s) e "+to_string(minutos)+" min(s)");
 }

@@ -3,9 +3,9 @@
 
 class Cruzeiro:public Produto{
     private:
-        int TaxaFixaDeDistancia;
+        int TaxaFixaDeDistancia=10;
 
-        int Cabine;
+        string Cabine;
         int PacoteLuaDeMel;
 
         int Distancia_Cruzeiro;
@@ -15,17 +15,19 @@ class Cruzeiro:public Produto{
     public:
         Cruzeiro(string, string, int, int, int, int, int);
 
-        void set_Cabine(int);
+        void Define_Cabine(int);
         void set_PacoteLuaDeMel(int);
 
-        int get_Cabine();
+        string get_Cabine();
         int get_PacoteLuaDeMel();
 
-        void Define_Distancia_Cruzeiro(int, int);
+        void Define_Distancia_Cruzeiro(int);
         int Retorna_Distancia_Cruzeiro();
 
         void Calcula_TempoDeViagemCruzeiro();
-        void Calcula_PrecoDaPassagemCruzeio(int);
+        void Calcula_PrecoDaPassagemCruzeio(int, int);
+
+        void ImprimirPassagemCruzeiro();
 
 
 };
